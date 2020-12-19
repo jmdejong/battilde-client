@@ -9,7 +9,7 @@ from queue import Queue
 import ratuil.inputs
 
 from .inputhandler import InputHandler
-from asciifarmclient.common import messages
+from battildeclient.common import messages
 
 class Client:
     

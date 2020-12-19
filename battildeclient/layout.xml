@@ -8,9 +8,7 @@
             <vbox key="inventory">
                 <textbox height="1">Inventory:</textbox>
                 <listing id="inventory">
-                    milk
-                    eggs
-                    bread
+                    pistol
                 </listing>
             </vbox>
             <vbox key="ground">
@@ -24,8 +22,8 @@
     </vbox>
     <vbox>
         <textinput id="textinput" align="bottom" height="1">hello</textinput>
-        <log id="msg" align="bottom" height="20%%">
-            Welcome to asciifarm
+        <log id="msg" align="bottom" height="3">
+            Welcome to Battilde
         </log>
         <overlay>
             <fill id="fieldbackground" char=" "></fill>

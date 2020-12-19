@@ -15,11 +15,11 @@ from .gameclient import Client
 from .display import Display
 from .parseargs import parse_args
 from ratuil.screen import Screen
-from asciifarmclient.common import messages
+from battildeclient.common import messages
 
 def main(argv=None):
     
-    (name, socketType, address, keybindings, characters, colours, logfile, ratuil_args) = parse_args(argv)
+    (name, socketType, address, keybindings, characters, colours, logfile, ratuil_args, sprite) = parse_args(argv)
     
     
     connection = Connection(socketType)
@@ -29,7 +29,7 @@ def main(argv=None):
         print("ERROR: Could not connect to server.\nAre you sure that the server is running and that you're connecting to the right address?", file=sys.stderr)
         return
     
-    if not introduce(connection, name):
+    if not introduce(connection, name, sprite):
         return
     error = None
     closeMessage = None
@@ -69,8 +69,8 @@ def main(argv=None):
         print(closeMessage, file=sys.stderr)
 
 
-def introduce(connection, name):
-    connection.send(messages.NameMessage(name))
+def introduce(connection, name, sprite):
+    connection.send(messages.IntroductionMessage(name, "player_"+sprite))
     print("introducing to server as {}".format(name))
     response = connection.receive()
     if response is None:
@@ -82,27 +82,8 @@ def introduce(connection, name):
     if isinstance(response, messages.MessageMessage):
         return response.type == "connect"
     if isinstance(response, messages.ErrorMessage):
-        if response.errType == "registered":
-            print("'{}' is a registered name. Enter password to login, or restart the client with the -n <name> option to choose a different name".format(name))
-            password = getpass.getpass()
-            m = hashlib.sha256()
-            m.update(bytes("asciifarm{name}{pw}{name}asciifarm".format(name=name, pw=password), "utf-8"))
-            passbytes = m.digest()
-            passtoken = base64.b64encode(passbytes).decode("ascii")
-            connection.send(messages.AuthMessage(name, passtoken))
-            response = connection.receive()
-            if response is None:
-                print("connection lost")
-                return False
-            if isinstance(response, messages.ConnectedMessage):
-                print("connection successful")
-                return True
-            
-            print("Connection unsuccessful: {}".format(response.to_json()))
-            return False
-        else:
-            print("Error: {}".format(response.to_json()), file=sys.stderr)
-            return False
+        print("Error: {}".format(response.to_json()), file=sys.stderr)
+        return False
     
     print("Invalid server response: {}".format(response.to_json()), file=sys.stderr)
     return False

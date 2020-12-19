@@ -71,7 +71,7 @@ class CommandHandler:
         self.client.sendInput(action)
     
     def move(self, direction):
-        self.input(["move", direction])
+        self.input({"move": direction})
     
     def say(self, text):
         self.input(["say", text])

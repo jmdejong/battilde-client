@@ -1,8 +1,8 @@
 
 import socket
 
-from asciifarmclient.common.tcommunicate import send, receive
-from asciifarmclient.common import messages
+from battildeclient.common.tcommunicate import send, receive
+from battildeclient.common import messages
 import json
 
 class Connection:
