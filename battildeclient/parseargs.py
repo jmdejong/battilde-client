@@ -13,7 +13,7 @@ from . import utils
 defaultAdresses = {
     "abstract": "battilde",
     "unix": "battilde.socket",
-    "inet": "localhost:9021",
+    "inet": "localhost:9221",
 }
 
 def parse_args(argv):
