@@ -9,7 +9,7 @@ from ratuil.textstyle import TextStyle
 from .listselector import ListSelector
 
 
-SIDEWIDTH = 20
+SIDEWIDTH = 24
 
 ALPHABET = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
 
@@ -32,19 +32,6 @@ class Display:
         # temporary, until these have a better place
         self.inventory = ListSelector(self.getWidget("inventory"))
         self.inventory._debug_name = "inventory"
-        self.ground = ListSelector(self.getWidget("ground"))
-        self.ground._debug_name = "ground"
-        self.switch = ListSelector(self.getWidget("switchtitles"))
-        self.switch._debug_name = "switch"
-        
-        self.switch.setItems(["inventory", "ground"])
-        self.menus = {
-            "inventory": self.inventory,
-            "ground": self.ground
-        }
-        
-        self.layout.get("switch").select(0)
-        
     
     def getWidget(self, name):
         return self.layout.get(name)
@@ -83,35 +70,18 @@ class Display:
     
     def showInfo(self, infostring):
         self.getWidget("info").set_text(infostring)
-            
-    def selectMenu(self, *args, **kwargs):
-        self.switch.select(*args, **kwargs)
-        self.layout.get("switch").select(self.getSelectedMenu())
-    
-    def getSelectedMenu(self):
-        return self.switch.getSelectedItem()
     
     def getSelectedItem(self, menu=None):
-        return self._getMenu(menu).getSelected()
+        return self.inventory.getSelected()
     
     def selectItem(self, menu=None, *args, **kwargs):
-        self._getMenu(menu).select(*args, **kwargs)
-    
-    def _getMenu(self, name=None):
-        if name is None:
-            name = self.getSelectedMenu()
-        name = name.casefold()
-        return self.menus[name]
+        self.inventory.select(*args, **kwargs)
     
     def setInventory(self, items):
         self.inventory.setItems(items)
     
     def setInv(self, items):
         self.inventory.setItems([(":" if is_equipped else " ") + item for (item, is_equipped) in items])
-    
-    def setGround(self, items):
-        self.ground.setItems(items)
-        
     
     def addMessage(self, message, msgtype=None):
         if msgtype is not None:

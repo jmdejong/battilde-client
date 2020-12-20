@@ -11,7 +11,7 @@
         "bite": ["!", 1],
         "gate": ["=", 7],
         "sanctuary": ["+", 7],
-        "zombie": ["z", 10],
+        "zombie": ["z", 6],
         "ymp": ["y", 13],
         "strix": ["x", 3],
         

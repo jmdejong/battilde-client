@@ -12,20 +12,8 @@
 "j": ["move", "south"],
 "l": ["move", "east"],
 "h": ["move", "west"],
-"e": ["take"],
-"q": ["drop"],
-"E": ["use"],
-"R": ["input", ["interact", ["none"]]],
-"r": ["input", ["interact", ["none", "north", "south", "east", "west"]]],
-"x": ["selectitem", -1, true, true],
-"c": ["selectitem", 1, true, true],
-"v": ["selectwidget", -1, true, true],
-"b": ["selectwidget", 1, true, true],
-"-": ["selectitem", -1, true, true],
-"+": ["selectitem", 1, true, true],
-"/": ["selectwidget", -1, true, true],
-"*": ["selectwidget", 1, true, true],
 "f": ["input", {"shoot": null}],
+"F": ["input", {"shoot": null}],
 " ": ["input", {"shoot": null}],
 "W": ["input", {"shoot": "north"}],
 "S": ["input", {"shoot": "south"}],
@@ -41,5 +29,5 @@
 "pagedown": ["scrollchat", -1],
 "/": ["runinput", "/"]
 },
-"help": " Controls:\nwasd/hjkl/arrows: Move around\nf or space: shoot\nWASD/HJKL: shoot in direction\nt: Chat\nvb: select menu\nctrl-c: close client\nPgUp/PgDn: scroll chat"
+"help": " Controls:\nwasd/hjkl/arrows: Move around\nf or space: shoot\nWASD/HJKL: shoot in direction\nt: Chat\n\nctrl-c: close client\nPgUp/PgDn: scroll chat\n \nYou start in the sanctuary. You can leave when your health is full. You can't return"
 }
