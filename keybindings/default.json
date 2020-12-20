@@ -31,11 +31,15 @@
 "S": ["input", {"shoot": "south"}],
 "D": ["input", {"shoot": "east"}],
 "A": ["input", {"shoot": "west"}],
+"K": ["move", "north"],
+"J": ["move", "south"],
+"L": ["move", "east"],
+"H": ["move", "west"],
 "t": ["runinput"],
 "enter": ["runinput"],
 "pageup": ["scrollchat", 1],
 "pagedown": ["scrollchat", -1],
 "/": ["runinput", "/"]
 },
-"help": " Controls:\nwasd or arrows: Move around\nf or space: shoot\nWASD: shoot in direction\nt: Chat\nvb: select menu\nctrl-c: close client\nPgUp/PgDn: scroll chat"
+"help": " Controls:\nwasd/hjkl/arrows: Move around\nf or space: shoot\nWASD/HJKL: shoot in direction\nt: Chat\nvb: select menu\nctrl-c: close client\nPgUp/PgDn: scroll chat"
 }
