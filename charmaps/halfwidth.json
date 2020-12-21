@@ -5,8 +5,8 @@
         "rock": ["#", 8, 8],
         
         "bullet": ["*", 9],
-        "bullethor": ["-", 3],
-        "bulletvert": ["|", 3],
+        "bullethor": ["-", 9],
+        "bulletvert": ["|", 9],
         "bite": ["!", 1],
         "gate": ["=", 7],
         "sanctuary": ["+", 7],
