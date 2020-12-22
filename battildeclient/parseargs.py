@@ -18,13 +18,10 @@ defaultAdresses = {
 
 def parse_args(argv):
 
-    parser = argparse.ArgumentParser(description="The client to AsciiFarm. Run this to connect to to the server.", epilog="""
-    Gameplay information:
-        Walk around and explore the rooms.
-        Kill the goblins and plant the seeds.
-
-    ~troido""", formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('-n', '--name', help='Your player name (must be unique!). Defaults to username on inet sockets and tildename on unix socket (including abstract). Apart from the tilde in a tildename all characters must be unicode letters, numbers or connection puctuation. The maximum size of a name is 256 bytes when encoded as utf8', default=None)
+    parser = argparse.ArgumentParser(
+        description="The client to Battilde. Run this to connect to to the server.",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('-n', '--name', help='Your player name (must be unique!). Defaults to username. All characters must be unicode letters, numbers or connection puctuation. The maximum size of a name is 256 bytes when encoded as utf8', default=None)
     parser.add_argument("-a", "--address", help="The address of the socket. When the socket type is 'abstract' this is just a name. When it is 'unix' this is a filename. When it is 'inet' is should be in the format 'address:port', eg 'localhost:8080'. Defaults depends on the socket type")
     parser.add_argument("-s", "--socket", help="the socket type. 'unix' is unix domain sockets, 'abstract' is abstract unix domain sockets and 'inet' is inet sockets. ", choices=["abstract", "unix", "inet"], default="abstract")
     parser.add_argument('-t', '--sprite', help="Player sprite. Format: <colourcode>-<letter>. Letter must be lowercase. The colourcode can be: 'r', 'g', 'b', 'c', 'y', 'm', any of the previous prefixed by 'l' or 'a'", default=None)
@@ -32,8 +29,8 @@ def parse_args(argv):
     parser.add_argument('-c', '--characters', help='The file with the character mappings for the graphics. If it is either of these names: {} it will be loaded from the charmaps directory.'.format(list(loaders.standardCharFiles.keys())), default="default")
     parser.add_argument('-o', '--logfile', help='All game messages will be written to this file.', default=None)
     parser.add_argument('--reset-style', help='Reset the style when it changes. Useful on some terminals', action="store_true")
-    parser.add_argument('--blink-bright-background', help='Use blink attribute to make background brighter. Useful for terminals that don\'t have bright backgrounds usually. Implies --reset-style', action="store_true")
-    parser.add_argument('-b', '--nocolours', '--nocolors', help='disable colours! :)', action="store_true")
+    parser.add_argument('--blink-bright-background', help='Use blink attribute to make background brighter. Useful for terminals that don\'t have bright backgrounds normally. Implies --reset-style', action="store_true")
+    parser.add_argument('-b', '--nocolours', '--nocolors', help='disable colours.', action="store_true")
     
     args = parser.parse_args(argv)
     
