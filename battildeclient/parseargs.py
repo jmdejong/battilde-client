@@ -46,7 +46,7 @@ def parse_args(argv):
     if args.socket == "abstract":
         address = '\0' + address
     elif args.socket == "inet":
-        hostname, sep, port = address.partition(':')
+        hostname, sep, port = address.rpartition(':')
         address = (hostname, int(port))
     
     colours = True
