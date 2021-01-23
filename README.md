@@ -25,7 +25,7 @@ The game ends when all pillars are destroyed.
 
 _a better installation with pip will be added in the future_
 
-The asciifarm client requires [ratuil](https://github.com/jmdejong/ratuil) to run.
+The battilde client requires [ratuil](https://github.com/jmdejong/ratuil) version 0.3.0 (at least) to run.
 To install ratuil run:
 
     python3 -m pip install --user ratuil
@@ -52,7 +52,7 @@ When entering a message or command `enter` will send the message / execute the c
 
 ## Command line arguments
 
-Run `python3 -m asciifarmclient --help` to see the list of command line arguments.
+Run `python3 -m battildeclient --help` to see the list of command line arguments.
 
 	$ python3 -m battildeclient --help
 	usage: __main__.py [-h] [-n NAME] [-a ADDRESS] [-s {abstract,unix,inet}] [-t SPRITE] [-k KEYBINDINGS] [-c CHARACTERS] [-o LOGFILE] [--reset-style]
