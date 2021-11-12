@@ -29,5 +29,5 @@
 "pagedown": ["scrollchat", -1],
 "/": ["runinput", "/"]
 },
-"help": " Controls:\nwasd/hjkl/arrows: Move around\nf or space: shoot\nWASD/HJKL: shoot in direction\nt: Chat\n\nctrl-c: close client\nPgUp/PgDn: scroll chat\n \nYou start in the sanctuary.\nYou can leave when your health is full.\nYou can't return.\nProtect the pillars!"
+"help": " Controls:\nwasd/hjkl/arrows: Move around\nf or space: shoot\nWASD/HJKL: shoot in direction\nt: Chat\n\nctrl-c: close client\nPgUp/PgDn: scroll chat\n \nYou start in the sanctuary.\nYou can leave when your health is full.\nYou can't return."
 }
