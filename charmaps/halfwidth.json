@@ -17,6 +17,8 @@
         "strix": ["x", 3],
         "worm": ["w", 11],
         "troll": ["t", 11],
+        "vargr": ["v", 8],
+        "xiangliu": ["x", 10],
         "health": ["+", 9],
         "box": ["?", 9],
         
