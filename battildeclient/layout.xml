@@ -16,9 +16,6 @@
         <log id="msg" align="bottom" height="3">
             Welcome to Battilde
         </log>
-        <overlay>
-            <fill id="fieldbackground" char=" "></fill>
-            <field id="field"></field>
-        </overlay>
+        <field id="field"></field>
     </vbox>
 </hbox>
