@@ -120,10 +120,9 @@ class Client:
             self.display.setHealth(health, maxHealth)
             if maxHealth is None:
                 self.log("You have died. Restart the client to respawn")
-        if msgType == "inventory":
-            self.display.setInventory(msg[1])
-        if msgType == "inv":
-            self.display.setInv(msg[1])
+        if msgType == "weapons":
+            weapons, selected = msg[1]
+            self.display.setWeapons(weapons, selected)
         if msgType == "ground":
             self.display.setGround(msg[1])
         if msgType == "message":

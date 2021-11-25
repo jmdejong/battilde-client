@@ -41,7 +41,9 @@ class CommandHandler:
             "hy": self.hy,
             "interact": self.interact,
             "q": self.interact,
-            "buy": lambda option: self.interact("buy "+option)
+            "buy": lambda option: self.interact("buy "+option),
+            "nextweapon": lambda: self.input("nextweapon"),
+            "previousweapon": lambda: self.input("previousweapon")
         }
         
         self.evalArgs = {

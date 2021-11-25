@@ -79,6 +79,10 @@ class Display:
     def setInv(self, items):
         self.inventory.setItems([(":" if is_equipped else " ") + item for (item, is_equipped) in items])
     
+    def setWeapons(self, weapons, selected):
+        self.inventory.setItems(weapons)
+        self.inventory.select(selected)
+    
     def addMessage(self, message, msgtype=None):
         if msgtype is not None:
             style = self.charmap.get_message_style(msgtype)
