@@ -21,12 +21,15 @@ class Client:
         self.connection = connection
         self.logFile = logFile
         self.closeMessage = None
+        self.helpVisible = False
         
-        self.inputHandler = InputHandler(self, keybindings["actions"])
+        self.inputHandler = InputHandler(self, keybindings.actions)
         
-        self.controlsString = keybindings.get("help", "")
+        self.shortHelp = keybindings.shorthelp or ""
+        self.longHelp = keybindings.longhelp or ""
         
-        self.display.showInfo(self.controlsString)
+        self.display.showInfo(self.shortHelp)
+        self.display.setLongHelp(self.longHelp)
         self.queue = Queue()
         
     
@@ -72,6 +75,15 @@ class Client:
     def close(self, msg=None):
         self.keepalive = False
         self.closeMessage = msg
+    
+    def toggleHelp(self):
+        self.helpVisible = not self.helpVisible
+        if self.helpVisible:
+            for line in self.longHelp.splitlines():
+                self.display.addMessage(line, "help")
+            self.display.showHelp()
+        else:
+            self.display.hideHelp()
     
     
     def update(self, message):

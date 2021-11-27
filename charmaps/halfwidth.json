@@ -90,7 +90,8 @@
         "damage": [9,0],
         "heal": [10,0],
         "connect": [3,0],
-        "server": [11,0]
+        "server": [11,0],
+        "help": [14,0]
     },
     "alphabet": "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
 }

@@ -43,7 +43,8 @@ class CommandHandler:
             "q": self.interact,
             "buy": lambda option: self.interact("buy "+option),
             "nextweapon": lambda: self.input("nextweapon"),
-            "previousweapon": lambda: self.input("previousweapon")
+            "previousweapon": lambda: self.input("previousweapon"),
+            "help": self.toggleHelp
         }
         
         self.evalArgs = {
@@ -130,6 +131,9 @@ class CommandHandler:
         else:
             selected = None
         self.input(["take", selected])
+    
+    def toggleHelp(self, *_):
+        self.client.toggleHelp()
     
     def eval(self, text):
         self.log(eval(text, self.evalArgs))

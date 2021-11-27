@@ -5,6 +5,7 @@ import os
 from ratuil.textstyle import TextStyle
 from ratuil.layout import Layout
 from .listselector import ListSelector
+from ratuil.boxstyle import Value, Relativity
 
 
 SIDEWIDTH = 24
@@ -67,6 +68,10 @@ class Display:
     def showInfo(self, infostring):
         self.getWidget("info").set_text(infostring)
     
+    def setLongHelp(self, longHelp):
+        pass
+        #self.getWidget("help").set_text(longHelp)
+    
     def getSelectedItem(self, menu=None):
         return self.inventory.getSelected()
     
@@ -98,6 +103,18 @@ class Display:
     
     def setInputString(self, string, cursor):
         self.getWidget("textinput").set_text(string, cursor)
+    
+    def showHelp(self):
+        self.layout.id_elements.get("msg").style.height = Value(.8, Relativity.VERY_RELATIVE)
+        self.layout.resize()
+        self.screen.clear()
+        self.layout.update()
+        
+    def hideHelp(self):
+        self.layout.id_elements.get("msg").style.height = Value(3, Relativity.ABSOLUTE)
+        self.layout.resize()
+        self.screen.clear()
+        self.layout.update(force=True)
     
     def update(self):
         self.layout.update()

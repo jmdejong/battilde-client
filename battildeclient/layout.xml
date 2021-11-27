@@ -16,6 +16,6 @@
         <log id="msg" align="bottom" height="3">
             Welcome to Battilde
         </log>
-        <field id="field"></field>
+        <field id="field" min_height="3"></field>
     </vbox>
 </hbox>

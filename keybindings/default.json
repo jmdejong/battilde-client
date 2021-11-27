@@ -34,7 +34,35 @@
 "\n": ["runinput"],
 "pageup": ["scrollchat", 1],
 "pagedown": ["scrollchat", -1],
-"/": ["runinput", "/"]
+"/": ["runinput", "/"],
+"?": ["help"]
 },
-"help": " Controls:\nwasd/hjkl/arrows: Move around\nf or space: shoot\nWASD/HJKL: shoot in direction\nt: Chat\n\nctrl-c: close client\nPgUp/PgDn: scroll chat\n \nYou start in the sanctuary.\nYou can leave when your health is full.\nYou can't return."
+"shorthelp": [
+    "press ? or type /help for help"
+],
+"longhelp": [
+    " ",
+    " ",
+    " ",
+    "# Battilde",
+    "Battilde is a cooperative top down shooter. Kill the monsters and survive as many waves as possible",
+    " ",
+    "## Gameplay",
+    "You start in the sanctuary. You can leave the sanctuary your health is full.",
+    "You can't return.",
+    "Upon dying you respawn in the sanctuary.",
+    "If there are no players alive anymore outside the sanctuary, the game is over (except in round 1)",
+    " ",
+    "## Controls",
+    " ",
+    "wasd/hjkl/arrows: Move around",
+    "WASD/HJKL: shoot",
+    "f/space: shoot in current direction",
+    "qe/+-/,.: select weapon",
+    " ",
+    "t: type chat message",
+    "PgUp/PgDn: scroll chat/help",
+    "ctrl-c: close client",
+    "? or /help: back to game"
+]
 }

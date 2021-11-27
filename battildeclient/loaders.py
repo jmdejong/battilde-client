@@ -20,16 +20,29 @@ def loadKeybindings(name):
     with open(fname) as f:
         data = json.load(f)
     bindings = {}
-    help = ""
+    shorthelp = ""
+    longhelp = ""
     for ftemplate in data.get("templates", []):
         if ftemplate.partition(os.sep)[0] in {".", ".."}:
             ftemplate = os.path.relpath(ftemplate, fname)
         template = loadKeybindings(ftemplate)
-        bindings.update(template.get("actions", {}))
-        help = template.get("help", help)
+        bindings.update(template.actions or {})
+        shorthelp = template.shorthelp or shorthelp
+        longhelp = template.longhelp or longhelp
     bindings.update(data.get("actions", {}))
-    help = data.get("help", help)
-    return {"actions": bindings, "help": help}
+    shorthelp = data.get("shorthelp", shorthelp)
+    longhelp = data.get("longhelp", longhelp)
+    if isinstance(shorthelp, list):
+        shorthelp = "\n".join(shorthelp)
+    if isinstance(longhelp, list):
+        longhelp = "\n".join(longhelp)
+    return KeyBindings(bindings, shorthelp, longhelp)
+
+class KeyBindings:
+    def __init__(self, actions, shorthelp, longhelp):
+        self.actions = actions
+        self.shorthelp = shorthelp
+        self.longhelp = longhelp
 
 
 standardCharFiles = {name: os.path.join(charmapPath, file) for name, file in {
