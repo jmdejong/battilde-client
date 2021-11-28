@@ -11,9 +11,11 @@
         "bulletvert": ["|", 9],
         "bite": ["!", 1],
         "spit": ["*", 2],
-        "gate": ["=", 7],
         "hail": [":", 9],
+        
+        "gate": ["=", 7],
         "sanctuary": ["+", 7],
+        
         "zombie": ["Z", 6],
         "ymp": ["Y", 13],
         "strix": ["X", 3],
@@ -21,6 +23,9 @@
         "troll": ["T", 11],
         "vargr": ["V", 7],
         "xiangliu": ["X", 10],
+        "bee": ["B", 11],
+        "wasp": ["W", 11],
+        
         "health": ["+", 9],
         "box": ["$", 9],
         
